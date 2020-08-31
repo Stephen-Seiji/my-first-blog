@@ -8,16 +8,29 @@
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">        
     </head>
     <body>
-        <div class="page-header">
-            {% if user.is_authenticated %}
-                <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>    
-                <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>          
-            {% else %}
-                <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-            {% endif %}
-            <h1><a href="/">The Life of Steve</a></h1>
-        </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="\">The Life of Steve</a>
+                </div>
+                <ul class="nav navbar-nav">
+                  <!-- <li class="active"><a href="#">Home</a></li> -->
+                  <li><a href="\">Personal Finance</a></li>
+                  <li><a href="\">Fitness</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>    
+                        <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>          
+                    {% else %}
+                        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+                    {% endif %}
+                <!-- <h1><a href="/">The Life of Steve</a></h1> --> 
+                </ul>
+            </div>
+        </nav>
+
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
